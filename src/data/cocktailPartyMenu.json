@@ -1,0 +1,468 @@
+{
+    "cocktailPartyMenu": {
+        "name": "COCKTAIL PARTY MENU",
+        "categories": {
+            "vegStarters": [
+                {
+                    "name": "Paneer tikka",
+                    "description": "Paneer cubes marinated in spices and grilled in tandoor",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "80 RS",
+                    "image": "/Images/JainMenuStarters/7PANEER TIKKA.jpg"
+                },
+                {
+                    "name": "Haryali paneer tikka",
+                    "description": "Green marinated paneer tikka with mint and coriander",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "80 RS",
+                    "image": "/Images/JainNewImage/HARYALI PANEER TIKKA.jpg"
+                },
+                {
+                    "name": "Paneer malai tikka",
+                    "description": "Creamy malai paneer tikka grilled to perfection",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "110 RS",
+                    "image": "/Images/JainNewImage/MALAI PANEER TIKKA.jpg"
+                },
+                {
+                    "name": "Kesariya paneer tikka",
+                    "description": "Kesari saffron flavored paneer tikka grilled",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "100 RS",
+                    "image": "/Images/JainNewImage/KESARIYA PANEER TIKKA.jpg"
+                },
+                {
+                    "name": "Chilli paneer Tikka",
+                    "description": "Spicy chilli paneer tikka with tangy flavors",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "80 RS",
+                    "image": "/Images/JainNewImage/CHILLI PANEER TIKKA.jpg"
+                },
+                {
+                    "name": "Malai broccoli tikka",
+                    "description": "Creamy broccoli tikka grilled with mild spices",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "120 RS",
+                    "image": "/Images/JainNewImage/MALAI BROCOLLI.jpg"
+                },
+                {
+                    "name": "Tandoori aloo",
+                    "description": "Baby potatoes marinated in tandoori spices and grilled",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "50 RS",
+                    "image": "/Images/JainNewImage/TANDOORI  ALOO.jpg"
+                },
+                {
+                    "name": "Stuffed aloo tikka",
+                    "description": "Potato tikka stuffed with spicy filling and grilled",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "70 RS",
+                    "image": "/Images/JainNewImage/STUFFED ALOO TIKKA.jpg"
+                },
+                {
+                    "name": "Soya chaap tikka",
+                    "description": "Soya chaap marinated and grilled in tandoori spices",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "70 RS",
+                    "image": "/Images/JainNewImage/SOYA CHAAP TIKKA.jpg"
+                },
+                {
+                    "name": "Malai Soya Tikka",
+                    "description": "Creamy malai soya tikka grilled",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "80 RS",
+                    "image": "/Images/VEG-STARTERS-MENU/10Malai Soya Tikka.jpg"
+                },
+                {
+                    "name": "Dry Manchurian",
+                    "description": "Crispy veg manchurian tossed in dry Indo-Chinese sauce",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "60 RS",
+                    "image": "/Images/VEG-STARTERS-MENU/11Dry Manchurian.jpg"
+                },
+                {
+                    "name": "Chilli basil tofu",
+                    "description": "Tofu tossed with chilli and basil in Asian style",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "70 RS",
+                    "image": "/Images/VEG-STARTERS-MENU/12Chilli basil tofu.jpg"
+                },
+                {
+                    "name": "Chili Paneer",
+                    "description": "Paneer tossed in spicy chilli sauce with peppers",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "70 RS",
+                    "image": "/Images/VEG-STARTERS-MENU/13Chili Paneer.jpg"
+                },
+                {
+                    "name": "Chilli mushroom",
+                    "description": "Mushrooms tossed in spicy chilli garlic sauce",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "100 RS",
+                    "image": "/Images/VEG-STARTERS-MENU/14Chilli mushroom.jpg"
+                },
+                {
+                    "name": "Veg shami kabab",
+                    "description": "Crispy veg shami kebabs with aromatic spices",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "60 RS",
+                    "image": "/Images/VEG-STARTERS-MENU/15Veg shami kabab.jpg"
+                },
+                {
+                    "name": "Hara Bhara Kabab",
+                    "description": "Green vegetable kebabs made with spinach and peas",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "50 RS",
+                    "image": "/Images/VEG-STARTERS-MENU/16Hara Bhara Kabab.jpg"
+                },
+                {
+                    "name": "Dahi ke shole",
+                    "description": "Crispy rolls stuffed with spicy filling served with dahi",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "50 RS",
+                    "image": "/Images/VEG-STARTERS-MENU/17Dahi ke shole.jpg"
+                },
+                {
+                    "name": "Dahi ke Kabab",
+                    "description": "Soft dahi kebabs with spices, shallow fried",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "80 RS",
+                    "image": "/Images/VEG-STARTERS-MENU/18Dahi ke Kabab.jpg"
+                },
+                {
+                    "name": "Spring Rolls",
+                    "description": "Crispy spring rolls stuffed with vegetables",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "80 RS",
+                    "image": "/Images/VEG-STARTERS-MENU/19Spring Rolls.jpg"
+                },
+                {
+                    "name": "Spicy veg (crystal dimsum)",
+                    "description": "Crystal dimsums with spicy vegetable filling",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "120 RS",
+                    "image": "/Images/VEG-STARTERS-MENU/20Spicy veg (crystal dimsum).jpg"
+                },
+                {
+                    "name": "Veg momo",
+                    "description": "Steamed veg momos served hot",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "50 RS",
+                    "image": "/Images/VEG-STARTERS-MENU/21Veg momo.jpg"
+                },
+                {
+                    "name": "Paneer momo",
+                    "description": "Steamed paneer momos with spices",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "60 RS",
+                    "image": "/Images/VEG-STARTERS-MENU/22Paneer momo.jpg"
+                },
+                {
+                    "name": "Cajun potato",
+                    "description": "Cajun spiced potatoes served crispy",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "50 RS",
+                    "image": "/Images/VEG-STARTERS-MENU/23Cajun potato.jpg"
+                },
+                {
+                    "name": "Honey chilli potato",
+                    "description": "Crispy potato tossed in honey chilli sauce",
+                    "portionSize": "100 GM",
+                    "pricePerPortion": "50 RS",
+                    "image": "/Images/VEG-STARTERS-MENU/24Honey chilli potato.jpg"
+                },
+                {
+                    "name": "Cocktail samosa",
+                    "description": "Mini cocktail samosas with spicy filling",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "60 RS",
+                    "image": "/Images/VEG-STARTERS-MENU/25Cocktail samosa.jpg"
+                },
+                {
+                    "name": "Cottage cheese satay",
+                    "description": "Paneer satay skewers with satay style sauce",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "70 RS",
+                    "image": "/Images/VEG-STARTERS-MENU/26Cottage cheese satay.jpg"
+                }
+                
+            ],
+
+            "nonVegStarters": [
+                {
+                    "name": "Chicken Tikka",
+                    "description": "Chicken tikka marinated and grilled in tandoor",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "90 RS",
+                    "image": "/Images/NON-VEG MENU-STARTERS/1Chicken Tikka.jpg"
+                },
+                {
+                    "name": "Haryali chicken tikka",
+                    "description": "Green herb marinated chicken tikka grilled",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "90 RS",
+                    "image": "/Images/NON-VEG MENU-STARTERS/2Haryali chicken tikka.jpg"
+                },
+                {
+                    "name": "Chicken Malai Tikka",
+                    "description": "Creamy malai chicken tikka grilled",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "100 RS",
+                    "image": "/Images/NON-VEG MENU-STARTERS/3Chicken Malai Tikka.jpg"
+                },
+                {
+                    "name": "Chilli Chicken Tikka",
+                    "description": "Spicy chilli chicken tikka grilled",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "100 RS",
+                    "image": "/Images/NON-VEG MENU-STARTERS/4Chilli Chicken Tikka.jpg"
+                },
+                {
+                    "name": "Anjeeri chicken tikka",
+                    "description": "Fig flavored anjeeri chicken tikka grilled",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "120 RS",
+                    "image": "/Images/NON-VEG MENU-STARTERS/5Anjeeri chicken tikka.jpg"
+                },
+                {
+                    "name": "Mutton seekh kabab",
+                    "description": "Spiced minced mutton seekh kebab grilled",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "130 RS",
+                    "image": "/Images/NON-VEG MENU-STARTERS/6Mutton seekh kabab.jpg"
+                },
+                {
+                    "name": "Chicken keema & pav",
+                    "description": "Spiced chicken keema served with pav",
+                    "portionSize": "75 GM + 1.5 PC",
+                    "pricePerPortion": "190 RS",
+                    "image": "/Images/NON-VEG MENU-STARTERS/7Chicken keema & pav.jpg"
+                },
+                {
+                    "name": "Chicken seekh kabab",
+                    "description": "Spiced minced chicken seekh kebab grilled",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "120 RS",
+                    "image": "/Images/NON-VEG MENU-STARTERS/8Chicken seekh kabab.jpg"
+                },
+                {
+                    "name": "BBQ Chicken wings",
+                    "description": "BBQ glazed chicken wings grilled",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "100 RS",
+                    "image": "/Images/NON-VEG MENU-STARTERS/9BBQ Chicken wings.jpg"
+                },
+                {
+                    "name": "Thai chicken satay",
+                    "description": "Thai chicken satay skewers with peanut sauce",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "120 RS",
+                    "image": "/Images/NON-VEG MENU-STARTERS/10Thai chicken satay.jpg"
+                },
+                {
+                    "name": "Amritsari Fish Tikka",
+                    "description": "Fish tikka in Amritsari spice marinade grilled",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "130 RS",
+                    "image": "/Images/NON-VEG MENU-STARTERS/11Amritsari Fish Tikka.jpg"
+                },
+                {
+                    "name": "Tandoori Prawns",
+                    "description": "Tandoori prawns marinated and grilled",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "130 RS",
+                    "image": "/Images/NON-VEG MENU-MAIN COURSE/Tandoori Prawns.jpeg"
+                },
+                {
+                    "name": "Chili Chicken",
+                    "description": "Chicken tossed in spicy chilli garlic sauce",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "90 RS",
+                    "image": "/Images/NON-VEG MENU-MAIN COURSE/Chili Chicken.jpeg"
+                },
+                {
+                    "name": "Chicken fingers",
+                    "description": "Crispy fried chicken finger strips",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "90 RS",
+                    "image": "/Images/NON-VEG MENU-MAIN COURSE/Chicken fingers.jpeg"
+                },
+                {
+                    "name": "Kung pao chicken",
+                    "description": "Kung pao style spicy chicken with peppers",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "130 RS",
+                    "image": "/Images/NON-VEG MENU-MAIN COURSE/Kung pao chicken.jpeg"
+                },
+                {
+                    "name": "Fish fingers",
+                    "description": "Crispy battered fish fingers",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "100 RS",
+                    "image": "/Images/NON-VEG MENU-MAIN COURSE/Fish fingers.jpeg"
+                },
+                {
+                    "name": "Fish Otak Otak",
+                    "description": "Otak otak style spiced fish bites",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "140 RS",
+                    "image": "/Images/NON-VEG MENU-MAIN COURSE/Fish Otak Otak.jpeg"
+                },
+                {
+                    "name": "Chilli garlic prawns",
+                    "description": "Prawns tossed in chilli garlic sauce",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "130 RS",
+                    "image": "/Images/NON-VEG MENU-MAIN COURSE/Chilli garlic prawns.jpeg"
+                },
+                {
+                    "name": "Chilli oil (crystal Dimsums)",
+                    "description": "Crystal dimsums served with chilli oil",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "120 RS",
+                    "image": "/Images/NON-VEG MENU-MAIN COURSE/Chilli oil (crystal Dimsums).jpeg"
+                },
+                {
+                    "name": "Chicken spring roll",
+                    "description": "Crispy chicken spring rolls",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "120 RS",
+                    "image": "/Images/NON-VEG MENU-MAIN COURSE/Chicken spring roll.jpeg"
+                },
+                {
+                    "name": "Chicken momos",
+                    "description": "Steamed chicken momos",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "70 RS",
+                    "image": "/Images/NON-VEG MENU-MAIN COURSE/Chicken momos.jpeg"
+                },
+                {
+                    "name": "Chicken nuggets",
+                    "description": "Crispy bite-sized chicken nuggets",
+                    "portionSize": "2PCS",
+                    "pricePerPortion": "90 RS",
+                    "image": "/Images/NON-VEG MENU-MAIN COURSE/Chicken nuggets.jpeg"
+                }
+            ],
+
+            "mainsVegAndNonVeg": [
+                {
+                    "name": "Dal Makhani",
+                    "description": "Creamy slow-cooked black lentils with butter",
+                    "portionSize": "100 GM",
+                    "pricePerPortion": "100 RS",
+                    "image": "/Images/JainMenuMAIN COURSE/2.Dal Makhani.png"
+                },
+                {
+                    "name": "Dal tadka",
+                    "description": "Yellow lentils tempered with spices and ghee",
+                    "portionSize": "100 GM",
+                    "pricePerPortion": "90 RS",
+                    "image": "/Images/JainMenuMAIN COURSE/3.Dal Tadka.png"
+                },
+                {
+                    "name": "Hakka Noodles",
+                    "description": "Stir-fried hakka noodles with vegetables",
+                    "portionSize": "75 GM",
+                    "pricePerPortion": "70 RS",
+                    "image": "/Images/JainMenuMAIN COURSE/7.Hakki Noodles.png"
+                },
+                {
+                    "name": "Veggies in hot garlic",
+                    "description": "Vegetables tossed in spicy hot garlic sauce",
+                    "portionSize": "75 GM",
+                    "pricePerPortion": "100 RS",
+                    "image": "/Images/MianVegMenu/25Veggies in hot garlic.jpg"
+                },
+                {
+                    "name": "Peas pulao",
+                    "description": "Peas cooked with basmati rice",
+                    "portionSize": "75 GM",
+                    "pricePerPortion": "100 RS",
+                    "image": "/Images/MianVegMenu/33Peas pulao.jpg"
+                },
+                {
+                    "name": "Veg pulao",
+                    "description": "Basmati rice cooked with mixed vegetables",
+                    "portionSize": "100 GM",
+                    "pricePerPortion": "50 RS",
+                    "image": "/Images/MianVegMenu/34Veg pulao.jpg"
+                },
+                {
+                    "name": "Veg biryani",
+                    "description": "Aromatic veg biryani cooked with spices",
+                    "portionSize": "100 GM",
+                    "pricePerPortion": "90 RS",
+                    "image": "/Images/MianVegMenu/35Veg biryani.jpg"
+                },
+                {
+                    "name": "Chicken Noodles",
+                    "description": "Stir-fried noodles with chicken",
+                    "portionSize": "75 GM",
+                    "pricePerPortion": "110 RS",
+                    "image": "/Images/NON-VEG MENU-MAIN COURSE/Chicken Noodles.jpeg"
+                },
+                {
+                    "name": "Chicken biryani",
+                    "description": "Aromatic chicken biryani with basmati rice",
+                    "portionSize": "100 GM",
+                    "pricePerPortion": "120 RS",
+                    "image": "/Images/NON-VEG MENU-MAIN COURSE/Chicken biryani.jpeg"
+                },
+                {
+                    "name": "Chicken fried rice",
+                    "description": "Wok-tossed chicken fried rice",
+                    "portionSize": "100 GM",
+                    "pricePerPortion": "100 RS",
+                    "image": "/Images/NON-VEG MENU-MAIN COURSE/Chicken fried rice.jpeg"
+                }
+            ],
+
+            "desserts": [
+                {
+                    "name": "Gulab Jamun",
+                    "description": "Soft gulab jamun soaked in sugar syrup",
+                    "portionSize": "2 PC",
+                    "pricePerPortion": "60 RS",
+                    "image": "/Images/Desserts/1Gulab Jamun.jpg"
+                },
+                {
+                    "name": "Brownies",
+                    "description": "Rich chocolate brownies with fudgy texture",
+                    "portionSize": "1.5 PC",
+                    "pricePerPortion": "60 RS",
+                    "image": "/Images/Desserts/2Brownies.jpg"
+                },
+                {
+                    "name": "Mango Phirni",
+                    "description": "Creamy mango phirni rice pudding",
+                    "portionSize": "100 GM",
+                    "pricePerPortion": "60 RS",
+                    "image": "/Images/Desserts/3Mango Phirni.jpg"
+                },
+                {
+                    "name": "Rasgulla",
+                    "description": "Spongy rasgullas soaked in light syrup",
+                    "portionSize": "2 PC",
+                    "pricePerPortion": "60 RS",
+                    "image": "/Images/Desserts/4Rasgulla.jpg"
+                },
+                {
+                    "name": "Kheer",
+                    "description": "Traditional rice kheer cooked in milk",
+                    "portionSize": "100 GM",
+                    "pricePerPortion": "60 RS",
+                    "image": "/Images/Desserts/5Kheer.jpg"
+                },
+                {
+                    "name": "Moongdal halwa",
+                    "description": "Rich moong dal halwa made with ghee",
+                    "portionSize": "100 GM",
+                    "pricePerPortion": "60 RS",
+                    "image": "/Images/Desserts/6Moongdal halwa.jpg"
+                }
+            ]
+
+        }
+    }
+}

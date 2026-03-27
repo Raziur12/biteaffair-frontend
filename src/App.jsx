@@ -1,0 +1,175 @@
+import React, { useState, useEffect, Suspense, lazy } from 'react';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { Box } from '@mui/material';
+import { Navbar, Footer } from './components/layout';
+import { PartyPlatters } from './components/menu';
+import { MenuErrorBoundary, FormErrorBoundary } from './components/common';
+import { CartProvider } from './context/CartContext';
+import BookingFlow from './components/booking/BookingFlow';
+import OrderStatus from './components/cart/OrderStatus';
+
+// Admin imports
+import AdminLayout from './components/admin/AdminLayout';
+import AdminDashboard from './components/admin/AdminDashboard';
+import AdminMenu from './components/admin/AdminMenu';
+import AdminGallery from './components/admin/AdminGallery';
+import AdminHero from './components/admin/AdminHero';
+import AdminFAQ from './components/admin/AdminFAQ';
+import AdminTestimonials from './components/admin/AdminTestimonials';
+import AdminEnquiries from './components/admin/AdminEnquiries';
+import AdminLocations from './components/admin/AdminLocations';
+import AdminSettings from './components/admin/AdminSettings';
+
+// Lazy-loaded sections and flows
+const Contact = lazy(() => import('./components/sections/Contact'));
+const OrderFlowManager = lazy(() => import('./components/order/OrderFlowManager'));
+const PaymentPage = lazy(() => import('./components/booking/PaymentPage'));
+const CheckoutConfirmation = lazy(() => import('./components/cart/CheckoutConfirmation'));
+const CartModal = lazy(() => import('./components/cart/CartModal'));
+const About = lazy(() => import('./components/sections/About'));
+
+const HomePage = ({ bookingConfig, selectedLocation }) => {
+  const [cartOpen, setCartOpen] = useState(false);
+  const location = useLocation();
+
+  // Scroll to section based on URL (menu or contact only)
+  useEffect(() => {
+    const scrollToSection = () => {
+      const path = location.pathname;
+      // Default to menu section for all non-contact routes
+      let sectionId = 'menu';
+
+      if (path.includes('/contact')) {
+        sectionId = 'contact';
+      }
+      if (path.includes('/about')) {
+        sectionId = 'about';
+      }
+      
+      if (sectionId) {
+        // Small delay to ensure the page has rendered
+        setTimeout(() => {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            // Calculate offset for mobile navbar height
+            const isMobile = window.innerWidth < 960; // md breakpoint
+            const offset = isMobile ? 92 : 48; // Mobile navbar is taller
+            
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }, 200); // Increased delay for mobile
+      }
+    };
+
+    scrollToSection();
+  }, [location.pathname]);
+
+  return (
+    <>
+      <Navbar selectedLocation={selectedLocation} />
+      <Box component="main" sx={{ paddingTop: { xs: '92px', md: '48px' } }}>
+        <MenuErrorBoundary>
+          <PartyPlatters 
+            id="menu" 
+            bookingConfig={bookingConfig} 
+            onOpenCart={() => setCartOpen(true)}
+          />
+        </MenuErrorBoundary>
+        <Suspense fallback={null}>
+          <About />
+        </Suspense>
+        <FormErrorBoundary>
+          <Suspense fallback={null}>
+            <Box id="contact">
+              <Contact />
+            </Box>
+          </Suspense>
+        </FormErrorBoundary>
+      </Box>
+      <Footer />
+      
+      {/* Order Flow Manager for Modal Flow */}
+      <Suspense fallback={null}>
+        <OrderFlowManager 
+          cartOpen={cartOpen} 
+          onCartClose={() => setCartOpen(false)}
+          bookingConfig={bookingConfig}
+        />
+      </Suspense>
+    </>
+  );
+};
+
+const App = () => {
+  // Initialize bookingConfig from localStorage if available
+  const [bookingConfig, setBookingConfig] = useState(() => {
+    const saved = localStorage.getItem('biteAffairs_bookingConfig');
+    const config = saved ? JSON.parse(saved) : null;
+    return config;
+  });
+  const [selectedLocation, setSelectedLocation] = useState(null);
+
+  const navigate = useNavigate();
+
+  // Sync bookingConfig changes with localStorage
+  useEffect(() => {
+    if (bookingConfig) {
+      localStorage.setItem('biteAffairs_bookingConfig', JSON.stringify(bookingConfig));
+    }
+  }, [bookingConfig]);
+
+  const handleLocationSelect = (location) => {
+    setSelectedLocation(location);
+  };
+
+  const handleBookingComplete = (config) => {
+    setBookingConfig(config);
+    // Save to localStorage for persistence across page refreshes
+    localStorage.setItem('biteAffairs_bookingConfig', JSON.stringify(config));
+    navigate('/menu');
+  };
+
+  const clearBookingConfig = () => {
+    setBookingConfig(null);
+    localStorage.removeItem('biteAffairs_bookingConfig');
+  };
+
+  return (
+    <CartProvider>
+      <Box sx={{ minHeight: '100vh', bgcolor: 'background.default', width: '100%', overflowX: 'hidden' }}>
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<BookingFlow onComplete={handleBookingComplete} onLocationSelect={handleLocationSelect} />} />
+          <Route path="/menu" element={<HomePage bookingConfig={bookingConfig} selectedLocation={selectedLocation} />} />
+          <Route path="/about" element={<HomePage bookingConfig={bookingConfig} selectedLocation={selectedLocation} />} />
+          <Route path="/contact" element={<HomePage bookingConfig={bookingConfig} selectedLocation={selectedLocation} />} />
+          <Route path="/cart" element={<Suspense fallback={null}><CartModal open={true} /></Suspense>} />
+          <Route path="/checkout" element={<Suspense fallback={null}><CheckoutConfirmation open={true} /></Suspense>} />
+          <Route path="/order-status/:orderId" element={<OrderStatus />} />
+          <Route path="/payment" element={<Suspense fallback={null}><PaymentPage /></Suspense>} />
+
+          {/* Admin Routes */}
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="menu" element={<AdminMenu />} />
+            <Route path="gallery" element={<AdminGallery />} />
+            <Route path="hero" element={<AdminHero />} />
+            <Route path="faq" element={<AdminFAQ />} />
+            <Route path="testimonials" element={<AdminTestimonials />} />
+            <Route path="enquiries" element={<AdminEnquiries />} />
+            <Route path="locations" element={<AdminLocations />} />
+            <Route path="settings" element={<AdminSettings />} />
+          </Route>
+        </Routes>
+      </Box>
+    </CartProvider>
+  );
+};
+
+export default App;
