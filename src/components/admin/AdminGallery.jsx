@@ -163,7 +163,7 @@ const AdminGallery = () => {
                     onChange={e => setFormData({ ...formData, title: e.target.value })}
                   />
                 </div>
-                <div className="admin-form-group">
+                {/* <div className="admin-form-group">
                   <label className="admin-form-label">Image URL</label>
                   <input
                     className="admin-form-input"
@@ -171,7 +171,50 @@ const AdminGallery = () => {
                     onChange={e => setFormData({ ...formData, image_url: e.target.value })}
                     placeholder="https://..."
                   />
+                </div> */}
+                 {/* Gallery Images Upload - Top Section */}
+                <div className="admin-form-group" style={{ marginBottom: '20px' }}>
+                  <label className="admin-form-label">Gallery Image</label>
+                  <div 
+                    style={{
+                      border: '2px dashed var(--admin-border)',
+                      borderRadius: '12px',
+                      padding: '32px 24px',
+                      textAlign: 'center',
+                      cursor: 'pointer',
+                      backgroundColor: '#FAFBFC',
+                      transition: 'all 0.2s ease'
+                    }}
+                    onClick={() => document.getElementById('dish-image-input').click()}
+                    onDragOver={(e) => { e.preventDefault(); e.currentTarget.style.borderColor = 'var(--admin-blue)'; }}
+                    onDragLeave={(e) => { e.currentTarget.style.borderColor = 'var(--admin-border)'; }}
+                    onDrop={(e) => {
+                      e.preventDefault();
+                      e.currentTarget.style.borderColor = 'var(--admin-border)';
+                      const file = e.dataTransfer.files[0];
+                      if (file) handleImageUpload(file);
+                    }}
+                  >
+                    <div style={{ fontSize: '40px', marginBottom: '12px' }}>📷</div>
+                    <div style={{ fontSize: '14px', color: 'var(--admin-muted)', marginBottom: '4px' }}>
+                      Click to upload or drag & drop
+                    </div>
+                    <div style={{ fontSize: '12px', color: '#9CA3AF' }}>
+                      JPG, PNG or WebP • Max 5MB
+                    </div>
+                    <input
+                      id="dish-image-input"
+                      type="file"
+                      accept="image/jpeg,image/png,image/webp"
+                      style={{ display: 'none' }}
+                      onChange={(e) => {
+                        const file = e.target.files[0];
+                        if (file) handleImageUpload(file);
+                      }}
+                    />
+                  </div>
                 </div>
+
                 <div className="admin-form-row">
                   <div className="admin-form-group">
                     <label className="admin-form-label">Section</label>
@@ -195,6 +238,7 @@ const AdminGallery = () => {
                       onChange={e => setFormData({ ...formData, sort_order: e.target.value })}
                     />
                   </div>
+                  
                 </div>
               </div>
               <div className="admin-modal-footer">

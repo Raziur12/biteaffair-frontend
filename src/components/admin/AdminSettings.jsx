@@ -79,7 +79,7 @@ const AdminSettings = () => {
 
   return (
     <div>
-      <div className="admin-card" style={{ maxWidth: '680px' }}>
+      <div className="admin-card" style={{ maxWidth: '100%' }}>
         <div className="admin-card-hdr">
           <span className="admin-card-title">Site Settings</span>
           <button
@@ -103,76 +103,67 @@ const AdminSettings = () => {
           </div>
         )}
 
-        <div>
-          <div className="admin-setting-row">
-            <div className="admin-setting-key">📞 Phone Number</div>
-            <div className="admin-setting-val">
-              <input
-                className="admin-form-input"
-                value={settings.phone}
-                onChange={e => handleChange('phone', e.target.value)}
-              />
-            </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px', padding: '20px' }}>
+          {/* Phone & WhatsApp - Row 1 */}
+          <div className="admin-form-group">
+            <label className="admin-form-label">📞 Phone Number</label>
+            <input
+              className="admin-form-input"
+              value={settings.phone}
+              onChange={e => handleChange('phone', e.target.value)}
+            />
           </div>
 
-          <div className="admin-setting-row">
-            <div className="admin-setting-key">💬 WhatsApp</div>
-            <div className="admin-setting-val">
-              <input
-                className="admin-form-input"
-                value={settings.whatsapp}
-                onChange={e => handleChange('whatsapp', e.target.value)}
-              />
-            </div>
+          <div className="admin-form-group">
+            <label className="admin-form-label">💬 WhatsApp</label>
+            <input
+              className="admin-form-input"
+              value={settings.whatsapp}
+              onChange={e => handleChange('whatsapp', e.target.value)}
+            />
           </div>
 
-          <div className="admin-setting-row">
-            <div className="admin-setting-key">✉️ Email</div>
-            <div className="admin-setting-val">
-              <input
-                className="admin-form-input"
-                value={settings.email}
-                onChange={e => handleChange('email', e.target.value)}
-              />
-            </div>
+          {/* Email & Happy Customers - Row 2 */}
+          <div className="admin-form-group">
+            <label className="admin-form-label">✉️ Email</label>
+            <input
+              className="admin-form-input"
+              value={settings.email}
+              onChange={e => handleChange('email', e.target.value)}
+            />
           </div>
 
-          <div className="admin-setting-row">
-            <div className="admin-setting-key">😊 Happy Customers</div>
-            <div className="admin-setting-val">
-              <input
-                className="admin-form-input"
-                value={settings.happy_customers}
-                onChange={e => handleChange('happy_customers', e.target.value)}
-              />
-            </div>
+          <div className="admin-form-group">
+            <label className="admin-form-label">😊 Happy Customers</label>
+            <input
+              className="admin-form-input"
+              value={settings.happy_customers}
+              onChange={e => handleChange('happy_customers', e.target.value)}
+            />
           </div>
 
-          <div className="admin-setting-row">
-            <div className="admin-setting-key">🎉 Events Catered</div>
-            <div className="admin-setting-val">
-              <input
-                className="admin-form-input"
-                value={settings.events_catered}
-                onChange={e => handleChange('events_catered', e.target.value)}
-              />
-            </div>
+          {/* Events, Rating, Years - Row 3 (3 columns) */}
+          <div className="admin-form-group" style={{ gridColumn: 'span 1' }}>
+            <label className="admin-form-label">🎉 Events Catered</label>
+            <input
+              className="admin-form-input"
+              value={settings.events_catered}
+              onChange={e => handleChange('events_catered', e.target.value)}
+            />
           </div>
 
-          <div className="admin-setting-row">
-            <div className="admin-setting-key">⭐ Avg Rating</div>
-            <div className="admin-setting-val">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', gridColumn: 'span 1' }}>
+            <div className="admin-form-group">
+              <label className="admin-form-label">⭐ Avg Rating</label>
               <input
                 className="admin-form-input"
                 value={settings.avg_rating}
                 onChange={e => handleChange('avg_rating', e.target.value)}
               />
             </div>
-          </div>
 
-          <div className="admin-setting-row">
-            <div className="admin-setting-key">📅 Years Experience</div>
-            <div className="admin-setting-val">
+            <div className="admin-form-group">
+              <label className="admin-form-label">📅 Years Experience</label>
               <input
                 className="admin-form-input"
                 value={settings.years_experience}
@@ -181,16 +172,15 @@ const AdminSettings = () => {
             </div>
           </div>
 
-          <div className="admin-setting-row">
-            <div className="admin-setting-key">📝 About Description</div>
-            <div className="admin-setting-val">
-              <textarea
-                className="admin-form-textarea"
-                value={settings.about_description}
-                onChange={e => handleChange('about_description', e.target.value)}
-                rows={4}
-              />
-            </div>
+          {/* About Description - Full Width */}
+          <div className="admin-form-group" style={{ gridColumn: '1 / -1' }}>
+            <label className="admin-form-label">📝 About Description</label>
+            <textarea
+              className="admin-form-textarea"
+              value={settings.about_description}
+              onChange={e => handleChange('about_description', e.target.value)}
+              rows={4}
+            />
           </div>
         </div>
       </div>
