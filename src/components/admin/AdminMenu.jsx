@@ -134,6 +134,39 @@ const AdminMenu = () => {
     }
   };
 
+  const handleImageUpload = async (file) => {
+    // Validate file size (max 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      alert('File size must be less than 5MB');
+      return;
+    }
+    
+    // Create form data for upload
+    const formDataUpload = new FormData();
+    formDataUpload.append('image', file);
+    
+    try {
+      // Upload to Cloudinary or your backend
+      const response = await fetch('http://localhost:5000/api/admin/upload', {
+        method: 'POST',
+        body: formDataUpload
+      });
+      
+      const data = await response.json();
+      if (data.success) {
+        setFormData({ ...formData, image_url: data.url });
+      }
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      // For now, just show preview without actual upload
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setFormData({ ...formData, image_url: e.target.result });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const getMealBadge = (type) => {
     switch (type) {
       case 'veg': return <span className="admin-badge admin-meal-veg">Veg</span>;
@@ -294,6 +327,7 @@ const AdminMenu = () => {
             </div>
             <form onSubmit={handleSubmit}>
               <div className="admin-modal-body">
+
                 <div className="admin-form-row">
                   <div className="admin-form-group">
                     <label className="admin-form-label">Item Name *</label>
@@ -406,28 +440,66 @@ const AdminMenu = () => {
                     />
                   </div>
                 </div>
-
-                <div className="admin-form-group">
-                  <label className="admin-form-label">Emoji Icon</label>
-                  <input
-                    className="admin-form-input"
-                    placeholder="🍽️"
-                    value={formData.emoji_icon}
-                    onChange={e => setFormData({ ...formData, emoji_icon: e.target.value })}
-                  />
+                 {/* Dish Image Upload - Top Section */}
+                <div className="admin-form-group" style={{ marginBottom: '20px' }}>
+                  <label className="admin-form-label">Dish Image</label>
+                  <div 
+                    style={{
+                      border: '2px dashed var(--admin-border)',
+                      borderRadius: '12px',
+                      padding: '32px 24px',
+                      textAlign: 'center',
+                      cursor: 'pointer',
+                      backgroundColor: '#FAFBFC',
+                      transition: 'all 0.2s ease'
+                    }}
+                    onClick={() => document.getElementById('dish-image-input').click()}
+                    onDragOver={(e) => { e.preventDefault(); e.currentTarget.style.borderColor = 'var(--admin-blue)'; }}
+                    onDragLeave={(e) => { e.currentTarget.style.borderColor = 'var(--admin-border)'; }}
+                    onDrop={(e) => {
+                      e.preventDefault();
+                      e.currentTarget.style.borderColor = 'var(--admin-border)';
+                      const file = e.dataTransfer.files[0];
+                      if (file) handleImageUpload(file);
+                    }}
+                  >
+                    <div style={{ fontSize: '40px', marginBottom: '12px' }}>📷</div>
+                    <div style={{ fontSize: '14px', color: 'var(--admin-muted)', marginBottom: '4px' }}>
+                      Click to upload or drag & drop
+                    </div>
+                    <div style={{ fontSize: '12px', color: '#9CA3AF' }}>
+                      JPG, PNG or WebP • Max 5MB
+                    </div>
+                    <input
+                      id="dish-image-input"
+                      type="file"
+                      accept="image/jpeg,image/png,image/webp"
+                      style={{ display: 'none' }}
+                      onChange={(e) => {
+                        const file = e.target.files[0];
+                        if (file) handleImageUpload(file);
+                      }}
+                    />
+                  </div>
                 </div>
 
-                <div className="admin-form-group">
+                {/* Status Toggle */}
+                <div className="admin-form-group" style={{ marginBottom: '20px' }}>
                   <label className="admin-form-label">Status</label>
-                  <select
-                    className="admin-form-select"
-                    value={formData.status}
-                    onChange={e => setFormData({ ...formData, status: e.target.value })}
-                  >
-                    <option value="active">Active</option>
-                    <option value="draft">Draft</option>
-                    <option value="archived">Archived</option>
-                  </select>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <div
+                      className="admin-toggle"
+                      onClick={() => setFormData({ ...formData, status: formData.status === 'active' ? 'draft' : 'active' })}
+                      style={{ cursor: 'pointer' }}
+                    >
+                      <div className={`admin-toggle-track ${formData.status === 'active' ? 'on' : ''}`}>
+                        <div className="admin-toggle-thumb"></div>
+                      </div>
+                    </div>
+                    <span style={{ fontSize: '14px', color: formData.status === 'active' ? 'var(--admin-success)' : 'var(--admin-muted)' }}>
+                      {formData.status === 'active' ? 'Active on website' : 'Draft'}
+                    </span>
+                  </div>
                 </div>
               </div>
               <div className="admin-modal-footer">

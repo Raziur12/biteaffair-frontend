@@ -106,13 +106,28 @@ const AdminHero = () => {
     }
   };
 
-  const handleDelete = async (id) => {
-    if (!window.confirm('Are you sure?')) return;
+  const handleImageUpload = async (file) => {
+    if (file.size > 5 * 1024 * 1024) {
+      alert('File size must be less than 5MB');
+      return;
+    }
+    const formDataUpload = new FormData();
+    formDataUpload.append('image', file);
     try {
-      await fetch(`http://localhost:5000/api/admin/hero/${id}`, { method: 'DELETE' });
-      fetchData();
+      const response = await fetch('http://localhost:5000/api/admin/upload', {
+        method: 'POST',
+        body: formDataUpload
+      });
+      const data = await response.json();
+      if (data.success) {
+        setFormData({ ...formData, background_image: data.url });
+      }
     } catch (error) {
-      console.error('Error deleting:', error);
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setFormData({ ...formData, background_image: e.target.result });
+      };
+      reader.readAsDataURL(file);
     }
   };
 
@@ -261,16 +276,48 @@ const AdminHero = () => {
                     />
                   </div>
                 </div>
-                <div className="admin-form-group">
-                  <label className="admin-form-label">Background Image URL</label>
-                  <input
-                    className="admin-form-input"
-                    placeholder="https://..."
-                    value={formData.background_image}
-                    onChange={e => setFormData({ ...formData, background_image: e.target.value })}
-                  />
+                <div className="admin-form-group" style={{ marginBottom: '20px' }}>
+                  <label className="admin-form-label">Background Image</label>
+                  <div
+                    style={{
+                      border: '2px dashed var(--admin-border)',
+                      borderRadius: '12px',
+                      padding: '32px 24px',
+                      textAlign: 'center',
+                      cursor: 'pointer',
+                      backgroundColor: '#FAFBFC',
+                      transition: 'all 0.2s ease'
+                    }}
+                    onClick={() => document.getElementById('hero-image-input').click()}
+                    onDragOver={(e) => { e.preventDefault(); e.currentTarget.style.borderColor = 'var(--admin-blue)'; }}
+                    onDragLeave={(e) => { e.currentTarget.style.borderColor = 'var(--admin-border)'; }}
+                    onDrop={(e) => {
+                      e.preventDefault();
+                      e.currentTarget.style.borderColor = 'var(--admin-border)';
+                      const file = e.dataTransfer.files[0];
+                      if (file) handleImageUpload(file);
+                    }}
+                  >
+                    <div style={{ fontSize: '40px', marginBottom: '12px' }}>🖼️</div>
+                    <div style={{ fontSize: '14px', color: 'var(--admin-muted)', marginBottom: '4px' }}>
+                      Click to upload banner background
+                    </div>
+                    <div style={{ fontSize: '12px', color: '#9CA3AF' }}>
+                      Recommended: 1920×600px
+                    </div>
+                    <input
+                      id="hero-image-input"
+                      type="file"
+                      accept="image/jpeg,image/png,image/webp"
+                      style={{ display: 'none' }}
+                      onChange={(e) => {
+                        const file = e.target.files[0];
+                        if (file) handleImageUpload(file);
+                      }}
+                    />
+                  </div>
                 </div>
-                <div className="admin-form-row">
+                {/* <div className="admin-form-row">
                   <div className="admin-form-group">
                     <label className="admin-form-label">Gradient From</label>
                     <input
@@ -287,17 +334,24 @@ const AdminHero = () => {
                       onChange={e => setFormData({ ...formData, gradient_to: e.target.value })}
                     />
                   </div>
-                </div>
-                <div className="admin-form-group">
+                </div> */}
+                {/* Status Toggle */}
+                <div className="admin-form-group" style={{ marginBottom: '20px' }}>
                   <label className="admin-form-label">Status</label>
-                  <select
-                    className="admin-form-select"
-                    value={formData.is_active}
-                    onChange={e => setFormData({ ...formData, is_active: e.target.value === 'true' })}
-                  >
-                    <option value="true">Active</option>
-                    <option value="false">Inactive</option>
-                  </select>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <div
+                      className="admin-toggle"
+                      onClick={() => setFormData({ ...formData, status: formData.status === 'active' ? 'draft' : 'active' })}
+                      style={{ cursor: 'pointer' }}
+                    >
+                      <div className={`admin-toggle-track ${formData.status === 'active' ? 'on' : ''}`}>
+                        <div className="admin-toggle-thumb"></div>
+                      </div>
+                    </div>
+                    <span style={{ fontSize: '14px', color: formData.status === 'active' ? 'var(--admin-success)' : 'var(--admin-muted)' }}>
+                      {formData.status === 'active' ? 'Active on website' : 'Draft'}
+                    </span>
+                  </div>
                 </div>
               </div>
               <div className="admin-modal-footer">

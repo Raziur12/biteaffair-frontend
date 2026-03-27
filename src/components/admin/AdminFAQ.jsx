@@ -159,7 +159,7 @@ const AdminFAQ = () => {
                       onChange={e => setFormData({ ...formData, sort_order: e.target.value })}
                     />
                   </div>
-                  <div className="admin-form-group">
+                  {/* <div className="admin-form-group">
                     <label className="admin-form-label">Status</label>
                     <select
                       className="admin-form-select"
@@ -169,6 +169,24 @@ const AdminFAQ = () => {
                       <option value="true">Active</option>
                       <option value="false">Inactive</option>
                     </select>
+                  </div> */}
+                  {/* Status Toggle */}
+                  <div className="admin-form-group" style={{ marginBottom: '20px' }}>
+                    <label className="admin-form-label">Status</label>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                      <div
+                        className="admin-toggle"
+                        onClick={() => setFormData({ ...formData, status: formData.status === 'active' ? 'draft' : 'active' })}
+                        style={{ cursor: 'pointer' }}
+                      >
+                        <div className={`admin-toggle-track ${formData.status === 'active' ? 'on' : ''}`}>
+                          <div className="admin-toggle-thumb"></div>
+                        </div>
+                      </div>
+                      <span style={{ fontSize: '14px', color: formData.status === 'active' ? 'var(--admin-success)' : 'var(--admin-muted)' }}>
+                        {formData.status === 'active' ? 'Active on website' : 'Draft'}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
